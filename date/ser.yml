@@ -1,0 +1,13 @@
+#设备串口号
+- com: com8
+  #串口输入指令
+- order:
+    -
+    - root
+    - reboot
+    #重启循环次数
+- count: 6
+  #期望log对比结果
+- expect:
+    - ok
+    - errors
