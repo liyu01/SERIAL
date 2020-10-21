@@ -16,8 +16,6 @@ class SerialSet:
         # 文件是否存在
         if not os.path.isfile("./date/ser.yml"):
             raise FileNotFoundError("文件路径不存在， 请检查路劲是否正确： %s" % "./date/ser.yml")
-            return
-
         else:
             # open 方法打开直接读出来
             f = open("./date/ser.yml", 'r', encoding='utf-8')
@@ -60,7 +58,7 @@ class SerialSet:
                 if strdate == "b''":
                     print("退出")
                     break
-        return
+        return None
 
 
     def make_Txt(self):
@@ -79,7 +77,7 @@ class SerialSet:
     def Date_txtpath(self, t, date):
         #  数据输入
         t.write(date)
-        return
+        return None
 
 
 if __name__ == '__main__':
