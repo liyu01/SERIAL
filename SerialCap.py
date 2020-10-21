@@ -16,13 +16,16 @@ class SerialSet:
         # 文件是否存在
         if not os.path.isfile("./date/ser.yml"):
             raise FileNotFoundError("文件路径不存在， 请检查路劲是否正确： %s" % "./date/ser.yml")
-        # open 方法打开直接读出来
-        f = open("./date/ser.yml", 'r', encoding='utf-8')
-        cfg = f.read()
-        # 将其转化为字典形式
-        d = yaml.load(cfg, Loader=yaml.FullLoader)
-        # print("读取的测试文件数据： %s" % d)
-        return d
+            return
+
+        else:
+            # open 方法打开直接读出来
+            f = open("./date/ser.yml", 'r', encoding='utf-8')
+            cfg = f.read()
+            # 将其转化为字典形式
+            d = yaml.load(cfg, Loader=yaml.FullLoader)
+            # print("读取的测试文件数据： %s" % d)
+            return d
 
     def script_write(self, order, com):
         #  串口指令操作
@@ -54,13 +57,11 @@ class SerialSet:
                 for x in expect:
                     if x in strdate:
                         print(strdate)
-                    else:
-                        continue
                 if strdate == "b''":
                     print("退出")
                     break
-
         return
+
 
     def make_Txt(self):
         # 获取时间戳转换时间
@@ -82,6 +83,7 @@ class SerialSet:
 
 
 if __name__ == '__main__':
+    input("请连接设备，并接通电源，按enter继续")
     d = SerialSet().read_yml()
     com1 = SerialSet().ser_set(d[0]["com"])
     SerialSet().log_Read(com=com1, order=d[1]["order"], expect=d[3]["expect"], count=d[2]["count"])
