@@ -14,11 +14,12 @@ if __name__ == '__main__':
     print(timeArray)
     otherStyleTime = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
     print(otherStyleTime)
-    fname1 = r"" + otherStyleTime + ".txt"  # 设置根据当前时间动态命名txt文件，注意r主要用于特殊符号，因此r后需要存在特殊符号
+    fname1 = otherStyleTime + ".txt"
+    # print(fname1)
     pathtxt = "./log" + "/" + fname1
     strpath_txt = pathtxt.replace(":", "-")
-    # print(type(strpath_txt))
-    # print(pathtxt)
+    print(type(pathtxt))
+    print(pathtxt)
     # fname+=fname1
     # f = open("D:/Users/JCDN/Desktop/abc/test.txt", "r")
     # print(f.read())

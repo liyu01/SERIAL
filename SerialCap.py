@@ -68,7 +68,7 @@ class SerialSet:
         timeArray = time.localtime(now)
         otherStyleTime = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
         # print(otherStyleTime)
-        fname1 = r"" + otherStyleTime + ".txt"  # 设置根据当前时间动态命名txt文件，注意r主要用于特殊符号，因此r后需要存在特殊符号
+        fname1 = otherStyleTime + ".txt"
         #  拼接log地址
         pathtxt = "./log" + "/" + fname1
         strpath_txt = pathtxt.replace(":", "-")
