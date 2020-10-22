@@ -7,9 +7,9 @@ import yaml
 
 class SerialSet:
 
-    def ser_set(self, com):
+    def ser_set(self, com, bps):
         #  串口设置
-        bamp = serial.Serial(com, 115200, timeout=10)
+        bamp = serial.Serial(com, bps, timeout=10)
         return bamp
 
     def read_yml(self):
@@ -83,5 +83,5 @@ class SerialSet:
 if __name__ == '__main__':
     input("请连接设备，并接通电源，按enter继续")
     d = SerialSet().read_yml()
-    com1 = SerialSet().ser_set(d[0]["com"])
-    SerialSet().log_Read(com=com1, order=d[1]["order"], expect=d[3]["expect"], count=d[2]["count"])
+    com1 = SerialSet().ser_set(com=d[0]["com"], bps=d[1]["bps"])
+    SerialSet().log_Read(com=com1, order=d[2]["order"], expect=d[4]["expect"], count=d[3]["count"])
